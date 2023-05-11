@@ -54,10 +54,10 @@ def precipitation():
     
     import datetime as dt
     
-    one_year_from_date = dt.date(2017,8,23) - dt.timedelta(days=365)
+    year_from_date = dt.date(2017,8,23) - dt.timedelta(days=365)
     
     precipitation_scores = session.query(measurement.date, measurement.prcp).\
-        filter(measurement.date >= one_year_from_date).all()
+        filter(measurement.date >= year_from_date).all()
         
     session.close()
         
@@ -81,10 +81,10 @@ def tobs():
     
     import datetime as dt
     
-    one_year_from_date = dt.date(2017,8,23) - dt.timedelta(days=365)
+    year_from_date = dt.date(2017,8,23) - dt.timedelta(days=365)
     
     active_station_temps = session.query(measurement.date, measurement.tobs).filter(measurement.station=="USC00519281").\
-        filter(measurement.date >= one_year_from_date).all()
+        filter(measurement.date >= year_from_date).all()
         
     session.close()
         
